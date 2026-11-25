@@ -8,16 +8,17 @@ CAR = (
         'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         'abcdefghijklmnopqrstuvwxyz'
     ) # list of characters that will make up the generated password
+MDP_SIZE = 23
 
-def generate_password(identifier, password, mdp_size=23):
+def generate_password(identifier, password, mdp_size=MDP_SIZE):
     if not identifier:
         raise ValueError("The ID cannot be empty.")
 
     if not password:
         raise ValueError("The master password cannot be empty.")
 
-    if mdp_size <= 0:
-        raise ValueError("The length must be positive.")
+    if not isinstance(mdp_size, int) or isinstance(mdp_size, bool) or mdp_size <= 0:
+        raise ValueError("The length must be a positive integer.")
 
     # Conversion of the master password and identifier to bytes
     password_bytes = password.encode("utf-8")
