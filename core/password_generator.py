@@ -11,6 +11,28 @@ CAR = (
 MDP_SIZE = 23
 
 def generate_password(identifier, password, mdp_size=MDP_SIZE):
+    """
+    Generate a deterministic password from a service identifier and a master password.
+
+    The same inputs and configuration always produce the same output.
+    The master password is processed using Argon2id, and the derived key
+    is used with HMAC-SHA256 to generate password characters.
+
+    Args:
+        identifier (str): The identifier of the service or website.
+            It is used to derive a service-specific salt and provide
+            context for password generation.
+        password (str): The user's master password.
+        mdp_size (int, optional): The desired length of the generated
+            password. Defaults to MDP_SIZE.
+
+    Returns:
+        str: A deterministic password containing characters from CAR.
+
+    Raises:
+        ValueError: If the identifier or master password is empty,
+            or if mdp_size is not a positive integer.
+    """
     if not identifier:
         raise ValueError("The ID cannot be empty.")
 
