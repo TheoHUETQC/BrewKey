@@ -11,7 +11,7 @@ Just remember **one master password** and **your identifiers**, BrewKey will han
 With BrewKey, you'll **never need to store** or **write down** your passwords again.  
 Your new password vault is your own memory, powerful, secure, and ultra-practical.
 
-![logo](logo/logo.ico)
+![logo](assets/branding/png/brewkey-logo-icon.ico)
 
 ---
 
